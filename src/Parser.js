@@ -2,8 +2,6 @@
 
 /**
  * Parse all pages
- *
- * @todo: support callbacks with callbackify
  */
 import cheerio from 'cheerio';
 import fetch from 'isomorphic-fetch';
@@ -27,9 +25,21 @@ export function isTorrentVerified(element) {
 }
 
 export function parsePage(url, parseCallback, filter = {}) {
-  console.log(url);
-  return fetch(url)
-    .then(response => response.text())
+  const attempt = (error) => {
+    if (error) console.log(error);
+
+    return fetch(url, {
+      mode: 'no-cors'
+    })
+    .then(response => response.text());
+  };
+
+  return attempt()
+    .then(response => (
+      response.includes('Database maintenance')
+        ? (attempt('Failed because of db error, retrying'))
+        : response
+    ))
     .then(response => parseCallback(response, filter));
 }
 
