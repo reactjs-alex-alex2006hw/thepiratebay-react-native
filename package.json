@@ -1,6 +1,6 @@
 {
   "name": "thepiratebay-react-native",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "The pirate bay client for react native",
   "homepage": "http://github.com/johnathan/thepiratebay-react-native",
   "repository": "git://github.com/johnathan/thepiratebay-react-native.git",
