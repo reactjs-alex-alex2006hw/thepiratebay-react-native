@@ -3,7 +3,7 @@
 /**
  * Parse all pages
  */
-import cheerio from 'cheerio';
+import cheerio from 'cheerio-without-node-native';
 import fetch from 'isomorphic-fetch';
 import { baseUrl } from './Torrent';
 

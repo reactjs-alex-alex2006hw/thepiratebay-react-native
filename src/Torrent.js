@@ -8,7 +8,7 @@ import {
 } from './Parser';
 import querystring from 'querystring';
 
-export const baseUrl = 'https://thepiratebay.se';
+export const baseUrl = 'https://pirateproxy.one';
 
 export const defaultOrder = { orderBy: 'seeds', sortBy: 'desc' };
 
